@@ -13,7 +13,7 @@ public interface EmployeeService {
 
     boolean deleteEmployeeIfExists(int employeeId);
 
-    boolean updateEmployeeIfExists(Integer employeeId, Employee employee, List<String> address);
+    boolean updateEmployeeIfExists(Integer employeeId, Employee employee, List<String> addresses);
 
     void addEmployee(Employee employee, List<String> address);
 

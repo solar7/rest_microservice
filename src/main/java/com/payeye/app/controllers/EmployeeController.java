@@ -34,8 +34,8 @@ public class EmployeeController {
     @ResponseStatus(NO_CONTENT)
     @PostMapping("/employees/new")
     public void addEmployee(@Valid Employee employee,
-                            @RequestParam @NotEmpty List<String> address) {
-        employeeService.addEmployee(employee, address);
+                            @RequestParam @NotEmpty List<String> addrs) {
+        employeeService.addEmployee(employee, addrs);
     }
 
     @DeleteMapping("/employees/{employeeId}")
@@ -47,8 +47,8 @@ public class EmployeeController {
     @PutMapping("/employees/{employeeId}/edit")
     public ResponseEntity<Employee> updateEmployee(@Valid Employee employee,
                                                    @PathVariable @NotNull Integer employeeId,
-                                                   @RequestParam List<String> address) {
-        boolean updated = employeeService.updateEmployeeIfExists(employeeId, employee, address);
+                                                   @RequestParam List<String> addrs) {
+        boolean updated = employeeService.updateEmployeeIfExists(employeeId, employee, addrs);
         return new ResponseEntity<>(updated ? NO_CONTENT : NOT_FOUND);
     }
 
